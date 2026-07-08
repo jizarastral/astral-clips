@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astral Clips — Short-form video clips in 24h | UAE</title>
+  <meta name="description" content="Turn long streams, podcasts & YouTube videos into viral TikTok, Reels & Shorts. 24-hour delivery. Packages from 99 AED." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="logo">Astral <span>Clips</span></a>
+      <nav class="nav__links">
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#niches">Who it's for</a>
+        <a href="#order" class="btn btn--sm">Order now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="badge">UAE · 24h delivery · From 99 AED</p>
+          <h1>Long video in.<br /><em>Viral clips out.</em></h1>
+          <p class="lead">
+            Send your stream, podcast, or YouTube video. Get ready-to-post
+            TikTok / Reels / Shorts with hooks, captions, and vertical framing — often within 24 hours.
+          </p>
+          <div class="hero__cta">
+            <a id="wa-hero" class="btn btn--primary" href="#">WhatsApp order →</a>
+            <a href="#pricing" class="btn btn--ghost">See packages</a>
+          </div>
+          <ul class="trust">
+            <li>9:16 vertical export</li>
+            <li>Captions included</li>
+            <li>1–3 revisions</li>
+            <li>Payment after sample on first order*</li>
+          </ul>
+          <p class="fine">*First-time clients: we cut 1 free sample clip from your footage, then you pay for the package.</p>
+        </div>
+        <div class="hero__card">
+          <div class="phone">
+            <div class="phone__bar"></div>
+            <div class="phone__body">
+              <span class="phone__tag">BEFORE → AFTER</span>
+              <p class="phone__big">2h stream</p>
+              <p class="phone__arrow">↓</p>
+              <p class="phone__big phone__big--accent">12 clips</p>
+              <p class="phone__sub">Hooks · Captions · 9:16</p>
+              <div class="phone__stats">
+                <div><strong>24h</strong><span>typical</span></div>
+                <div><strong>199</strong><span>AED Boost</span></div>
+                <div><strong>3</strong><span>platforms</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="steps">
+          <article class="step">
+            <span class="step__n">01</span>
+            <h3>Send footage</h3>
+            <p>Google Drive / WeTransfer / YouTube link. Tell us niche + style (gaming, podcast, business).</p>
+          </article>
+          <article class="step">
+            <span class="step__n">02</span>
+            <h3>We cut & caption</h3>
+            <p>AI-assisted highlight pull + human edit. Vertical 9:16, hook first 1–2s, readable captions.</p>
+          </article>
+          <article class="step">
+            <span class="step__n">03</span>
+            <h3>You post</h3>
+            <p>Download folder + suggested titles/hashtags. Request revisions. Done.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section section--alt">
+      <div class="container">
+        <h2>Simple packages (AED)</h2>
+        <p class="section__sub">Pick a pack. Custom monthly retainers available.</p>
+        <div class="pricing" id="pricing-cards"></div>
+        <p class="section__sub" style="margin-top:1.5rem">Add-ons: same-day rush +50 · Arabic/Malayalam captions +40 · thumbnails +35</p>
+      </div>
+    </section>
+
+    <section id="niches" class="section">
+      <div class="container">
+        <h2>Built for creators who post daily</h2>
+        <div class="niches">
+          <div class="niche"><h3>🎮 Gaming / streamers</h3><p>Valorant, FPS, highlight reels, funny fails, clutch moments.</p></div>
+          <div class="niche"><h3>🎙️ Podcasts & talk</h3><p>Hot takes, story beats, quote cards, bilingual captions.</p></div>
+          <div class="niche"><h3>📺 YouTube long-form</h3><p>Turn 10–40 min videos into a week of Shorts/Reels.</p></div>
+          <div class="niche"><h3>🏢 UAE businesses</h3><p>Events, site visits, product demos → Instagram Reels that sell.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="section section--cta">
+      <div class="container cta-box">
+        <h2>Ready to order?</h2>
+        <p>Message us on WhatsApp with your package + a link to your video. First order includes 1 free sample clip.</p>
+        <form id="order-form" class="order-form">
+          <label>Your name
+            <input type="text" name="name" required placeholder="Name" />
+          </label>
+          <label>Package
+            <select name="package" id="package-select"></select>
+          </label>
+          <label>Video link
+            <input type="url" name="link" required placeholder="YouTube / Drive / WeTransfer" />
+          </label>
+          <label>Niche / notes
+            <textarea name="notes" rows="3" placeholder="e.g. Valorant highlights, funny moments, English captions"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block">Open WhatsApp with order →</button>
+        </form>
+        <p class="fine">No account needed. Opens WhatsApp with your order pre-filled.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="logo">Astral <span>Clips</span></span>
+      <p>Short-form editing · UAE timezone · Not affiliated with TikTok/Meta/YouTube</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
