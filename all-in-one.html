@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Astral Clips — Short-form video clips in 24h | UAE</title>
+  <meta name="description" content="Turn long streams, podcasts & YouTube videos into viral TikTok, Reels & Shorts. 24-hour delivery. Packages from 99 AED." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --bg: #07080c;
+  --bg2: #0e1018;
+  --card: #141824;
+  --line: #242836;
+  --text: #eef0f6;
+  --muted: #9aa3b5;
+  --accent: #7c5cff;
+  --accent2: #22d3a6;
+  --pink: #ff4d9a;
+  --radius: 16px;
+  --font: "Inter", system-ui, sans-serif;
+  --display: "Space Grotesk", var(--font);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(1100px, 92%); margin: 0 auto; }
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(12px);
+  background: rgba(7, 8, 12, 0.8);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem 0;
+}
+.logo {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+.logo span { color: var(--accent2); }
+.nav__links { display: flex; gap: 1.25rem; align-items: center; font-size: 0.92rem; color: var(--muted); }
+.nav__links a:hover { color: var(--text); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.4rem; border-radius: 999px; padding: 0.75rem 1.25rem;
+  font-weight: 600; font-size: 0.95rem; border: 1px solid transparent;
+  cursor: pointer; transition: 0.15s ease;
+}
+.btn--sm { padding: 0.5rem 0.95rem; font-size: 0.88rem; }
+.btn--primary {
+  background: linear-gradient(135deg, var(--accent), #5b8cff);
+  color: white; box-shadow: 0 8px 28px rgba(124, 92, 255, 0.35);
+}
+.btn--primary:hover { transform: translateY(-1px); }
+.btn--ghost {
+  border-color: var(--line); color: var(--text); background: transparent;
+}
+.btn--ghost:hover { border-color: var(--muted); }
+.btn--block { width: 100%; }
+
+.hero { padding: 4rem 0 3rem; }
+.hero__grid {
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: center;
+}
+.badge {
+  display: inline-block; font-size: 0.8rem; font-weight: 600;
+  color: var(--accent2); background: rgba(34, 211, 166, 0.1);
+  border: 1px solid rgba(34, 211, 166, 0.25);
+  padding: 0.35rem 0.75rem; border-radius: 999px; margin-bottom: 1rem;
+}
+.hero h1 {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 1rem;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--accent2), #7c5cff, var(--pink));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.lead { color: var(--muted); font-size: 1.05rem; max-width: 34rem; margin-bottom: 1.5rem; }
+.hero__cta { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.25rem; }
+.trust {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem;
+  color: var(--muted); font-size: 0.88rem;
+}
+.trust li::before { content: "✓ "; color: var(--accent2); font-weight: 700; }
+.fine { color: #6b7385; font-size: 0.78rem; margin-top: 0.75rem; }
+
+.phone {
+  background: linear-gradient(160deg, #1a1f30, #0c0e16);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 0.7rem;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+}
+.phone__bar {
+  width: 40%; height: 6px; background: #2a2f42; border-radius: 99px;
+  margin: 0.4rem auto 0.8rem;
+}
+.phone__body {
+  background: radial-gradient(circle at top, rgba(124,92,255,0.25), transparent 55%), var(--card);
+  border-radius: 22px; padding: 1.5rem 1.2rem 1.3rem; text-align: center;
+  min-height: 340px; display: flex; flex-direction: column; justify-content: center; gap: 0.4rem;
+}
+.phone__tag {
+  font-size: 0.72rem; letter-spacing: 0.12em; color: var(--muted); font-weight: 600;
+}
+.phone__big { font-family: var(--display); font-size: 2rem; font-weight: 700; }
+.phone__big--accent { color: var(--accent2); }
+.phone__arrow { color: var(--muted); font-size: 1.4rem; }
+.phone__sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+.phone__stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
+  border-top: 1px solid var(--line); padding-top: 1rem; margin-top: 0.5rem;
+}
+.phone__stats strong { display: block; font-size: 1.1rem; }
+.phone__stats span { font-size: 0.72rem; color: var(--muted); }
+
+.section { padding: 3.5rem 0; }
+.section--alt { background: var(--bg2); border-block: 1px solid var(--line); }
+.section h2 {
+  font-family: var(--display);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  letter-spacing: -0.02em; margin-bottom: 0.5rem;
+}
+.section__sub { color: var(--muted); margin-bottom: 1.75rem; }
+
+.steps {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem;
+}
+.step {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.35rem;
+}
+.step__n {
+  font-family: var(--display); color: var(--accent); font-weight: 700; font-size: 0.9rem;
+}
+.step h3 { margin: 0.5rem 0 0.4rem; font-size: 1.05rem; }
+.step p { color: var(--muted); font-size: 0.92rem; }
+
+.pricing {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.25rem;
+}
+.price-card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.35rem; display: flex; flex-direction: column;
+  position: relative;
+}
+.price-card.popular {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px rgba(124,92,255,0.35), 0 16px 40px rgba(124,92,255,0.15);
+}
+.price-card .pill {
+  position: absolute; top: -10px; right: 12px;
+  background: var(--accent); color: white; font-size: 0.7rem; font-weight: 700;
+  padding: 0.25rem 0.55rem; border-radius: 999px;
+}
+.price-card h3 { font-family: var(--display); font-size: 1.15rem; }
+.price-card .amount {
+  font-family: var(--display); font-size: 2rem; font-weight: 700; margin: 0.4rem 0;
+}
+.price-card .amount span { font-size: 0.9rem; color: var(--muted); font-weight: 500; }
+.price-card .clips { color: var(--accent2); font-weight: 600; font-size: 0.9rem; margin-bottom: 0.8rem; }
+.price-card ul { list-style: none; flex: 1; margin-bottom: 1rem; }
+.price-card li {
+  color: var(--muted); font-size: 0.85rem; padding: 0.28rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.price-card li::before { content: "• "; color: var(--accent); }
+
+.niches {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.25rem;
+}
+.niche {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 1.25rem;
+}
+.niche h3 { margin-bottom: 0.4rem; font-size: 1.02rem; }
+.niche p { color: var(--muted); font-size: 0.92rem; }
+
+.section--cta { padding-bottom: 4.5rem; }
+.cta-box {
+  background: linear-gradient(145deg, #151a2b, #0d101a);
+  border: 1px solid var(--line);
+  border-radius: 24px; padding: 2rem;
+  max-width: 560px; margin: 0 auto; text-align: center;
+}
+.cta-box h2 { margin-bottom: 0.5rem; }
+.cta-box > p { color: var(--muted); margin-bottom: 1.25rem; }
+
+.order-form {
+  display: grid; gap: 0.85rem; text-align: left;
+}
+.order-form label {
+  display: grid; gap: 0.35rem; font-size: 0.85rem; font-weight: 600; color: var(--muted);
+}
+.order-form input,
+.order-form select,
+.order-form textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--line);
+  color: var(--text); border-radius: 12px; padding: 0.75rem 0.9rem;
+  font: inherit;
+}
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus {
+  outline: none; border-color: var(--accent);
+}
+
+.footer {
+  border-top: 1px solid var(--line); padding: 1.5rem 0 2rem; color: var(--muted); font-size: 0.85rem;
+}
+.footer__inner { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: space-between; align-items: center; }
+
+@media (max-width: 900px) {
+  .hero__grid, .steps, .pricing, .niches { grid-template-columns: 1fr; }
+  .pricing { grid-template-columns: 1fr 1fr; }
+  .nav__links a:not(.btn) { display: none; }
+}
+@media (max-width: 560px) {
+  .pricing { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a href="#" class="logo">Astral <span>Clips</span></a>
+      <nav class="nav__links">
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#niches">Who it's for</a>
+        <a href="#order" class="btn btn--sm">Order now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="badge">UAE · 24h delivery · From 99 AED</p>
+          <h1>Long video in.<br /><em>Viral clips out.</em></h1>
+          <p class="lead">
+            Send your stream, podcast, or YouTube video. Get ready-to-post
+            TikTok / Reels / Shorts with hooks, captions, and vertical framing — often within 24 hours.
+          </p>
+          <div class="hero__cta">
+            <a id="wa-hero" class="btn btn--primary" href="#">WhatsApp order →</a>
+            <a href="#pricing" class="btn btn--ghost">See packages</a>
+          </div>
+          <ul class="trust">
+            <li>9:16 vertical export</li>
+            <li>Captions included</li>
+            <li>1–3 revisions</li>
+            <li>Payment after sample on first order*</li>
+          </ul>
+          <p class="fine">*First-time clients: we cut 1 free sample clip from your footage, then you pay for the package.</p>
+        </div>
+        <div class="hero__card">
+          <div class="phone">
+            <div class="phone__bar"></div>
+            <div class="phone__body">
+              <span class="phone__tag">BEFORE → AFTER</span>
+              <p class="phone__big">2h stream</p>
+              <p class="phone__arrow">↓</p>
+              <p class="phone__big phone__big--accent">12 clips</p>
+              <p class="phone__sub">Hooks · Captions · 9:16</p>
+              <div class="phone__stats">
+                <div><strong>24h</strong><span>typical</span></div>
+                <div><strong>199</strong><span>AED Boost</span></div>
+                <div><strong>3</strong><span>platforms</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <h2>How it works</h2>
+        <div class="steps">
+          <article class="step">
+            <span class="step__n">01</span>
+            <h3>Send footage</h3>
+            <p>Google Drive / WeTransfer / YouTube link. Tell us niche + style (gaming, podcast, business).</p>
+          </article>
+          <article class="step">
+            <span class="step__n">02</span>
+            <h3>We cut & caption</h3>
+            <p>AI-assisted highlight pull + human edit. Vertical 9:16, hook first 1–2s, readable captions.</p>
+          </article>
+          <article class="step">
+            <span class="step__n">03</span>
+            <h3>You post</h3>
+            <p>Download folder + suggested titles/hashtags. Request revisions. Done.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section section--alt">
+      <div class="container">
+        <h2>Simple packages (AED)</h2>
+        <p class="section__sub">Pick a pack. Custom monthly retainers available.</p>
+        <div class="pricing" id="pricing-cards"></div>
+        <p class="section__sub" style="margin-top:1.5rem">Add-ons: same-day rush +50 · Arabic/Malayalam captions +40 · thumbnails +35</p>
+      </div>
+    </section>
+
+    <section id="niches" class="section">
+      <div class="container">
+        <h2>Built for creators who post daily</h2>
+        <div class="niches">
+          <div class="niche"><h3>🎮 Gaming / streamers</h3><p>Valorant, FPS, highlight reels, funny fails, clutch moments.</p></div>
+          <div class="niche"><h3>🎙️ Podcasts & talk</h3><p>Hot takes, story beats, quote cards, bilingual captions.</p></div>
+          <div class="niche"><h3>📺 YouTube long-form</h3><p>Turn 10–40 min videos into a week of Shorts/Reels.</p></div>
+          <div class="niche"><h3>🏢 UAE businesses</h3><p>Events, site visits, product demos → Instagram Reels that sell.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="order" class="section section--cta">
+      <div class="container cta-box">
+        <h2>Ready to order?</h2>
+        <p>Message us on WhatsApp with your package + a link to your video. First order includes 1 free sample clip.</p>
+        <form id="order-form" class="order-form">
+          <label>Your name
+            <input type="text" name="name" required placeholder="Name" />
+          </label>
+          <label>Package
+            <select name="package" id="package-select"></select>
+          </label>
+          <label>Video link
+            <input type="url" name="link" required placeholder="YouTube / Drive / WeTransfer" />
+          </label>
+          <label>Niche / notes
+            <textarea name="notes" rows="3" placeholder="e.g. Valorant highlights, funny moments, English captions"></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block">Open WhatsApp with order →</button>
+        </form>
+        <p class="fine">No account needed. Opens WhatsApp with your order pre-filled.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="logo">Astral <span>Clips</span></span>
+      <p>Short-form editing · UAE timezone · Not affiliated with TikTok/Meta/YouTube</p>
+    </div>
+  </footer>
+
+  <script>
+/* Astral Clips — landing page logic. Edit WhatsApp in config.json, then refresh. */
+
+const FALLBACK = {
+  whatsapp: "971505804276",
+  packages: [
+    { id: "spark", name: "Spark", clips: 5, price: 99, delivery_hours: 24, includes: ["9:16 vertical", "hook cut", "basic captions", "1 revision"] },
+    { id: "boost", name: "Boost", clips: 12, price: 199, delivery_hours: 24, popular: true, includes: ["9:16 vertical", "hook + punch-in cuts", "captions", "emoji/stickers", "2 revisions", "posting tips"] },
+    { id: "dominate", name: "Dominate", clips: 25, price: 349, delivery_hours: 48, includes: ["everything in Boost", "title cards", "thumbnail stills", "3 platform versions", "3 revisions"] },
+    { id: "monthly", name: "Creator Monthly", clips: 60, price: 899, delivery_hours: "ongoing", includes: ["~15 clips/week", "priority queue", "style guide saved", "WhatsApp support", "unlimited minor tweaks"] }
+  ]
+};
+
+async function loadConfig() {
+  try {
+    const res = await fetch("config.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("no config");
+    return await res.json();
+  } catch {
+    return FALLBACK;
+  }
+}
+
+function waLink(number, text) {
+  const n = String(number).replace(/\D/g, "");
+  return `https://wa.me/${n}?text=${encodeURIComponent(text)}`;
+}
+
+function renderPricing(cfg) {
+  const root = document.getElementById("pricing-cards");
+  const select = document.getElementById("package-select");
+  root.innerHTML = "";
+  select.innerHTML = "";
+
+  cfg.packages.forEach((p) => {
+    const card = document.createElement("article");
+    card.className = "price-card" + (p.popular ? " popular" : "");
+    card.innerHTML = `
+      ${p.popular ? '<span class="pill">Most popular</span>' : ""}
+      <h3>${p.name}</h3>
+      <div class="amount">${p.price} <span>AED</span></div>
+      <div class="clips">${p.clips} clips · ${p.delivery_hours === "ongoing" ? "monthly" : p.delivery_hours + "h"}</div>
+      <ul>${(p.includes || []).map((i) => `<li>${i}</li>`).join("")}</ul>
+      <a class="btn btn--primary" href="${waLink(cfg.whatsapp, defaultMsg(p))}">Order ${p.name}</a>
+    `;
+    root.appendChild(card);
+
+    const opt = document.createElement("option");
+    opt.value = p.id;
+    opt.textContent = `${p.name} — ${p.clips} clips — ${p.price} AED`;
+    select.appendChild(opt);
+  });
+}
+
+function defaultMsg(p) {
+  return `Hi Astral Clips! I want the *${p.name}* package (${p.clips} clips / ${p.price} AED). I'll send my video link next.`;
+}
+
+function wireForm(cfg) {
+  const hero = document.getElementById("wa-hero");
+  hero.href = waLink(
+    cfg.whatsapp,
+    "Hi Astral Clips! I want short-form clips from my long video. What's the next step?"
+  );
+
+  document.getElementById("order-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const pkg = cfg.packages.find((p) => p.id === fd.get("package")) || cfg.packages[1];
+    const text = [
+      `Hi Astral Clips! New order 🎬`,
+      ``,
+      `Name: ${fd.get("name")}`,
+      `Package: ${pkg.name} (${pkg.clips} clips / ${pkg.price} AED)`,
+      `Video: ${fd.get("link")}`,
+      `Notes: ${fd.get("notes") || "—"}`,
+      ``,
+      `Please confirm turnaround + payment details.`
+    ].join("\n");
+    window.open(waLink(cfg.whatsapp, text), "_blank");
+  });
+}
+
+loadConfig().then((cfg) => {
+  renderPricing(cfg);
+  wireForm(cfg);
+});
+
+</script>
+</body>
+</html>
+
