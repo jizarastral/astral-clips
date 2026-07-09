@@ -16,8 +16,9 @@ const FALLBACK = {
 };
 
 const LEAD_EMAIL = "astralfconsulting@gmail.com";
-const SALES_WA = "971554458850";
-const ANALYSIS_WA = "971505804276";
+const SALES_WA = "971554458850"; // Sales
+const TECHNICAL_WA = "971508364246"; // Technical
+const CLIENT_HAPPINESS_WA = "971505804276"; // Client happiness (copy of every lead)
 
 async function loadConfig() {
   try {
@@ -41,13 +42,15 @@ function waLink(number, text) {
  * 3) Analysis copy WhatsApp (+971 50 580 4276)
  */
 async function deliverLead({ subject, fields, waText, channel = "sales" }) {
-  const primary = channel === "support" ? "971508364246" : SALES_WA;
-  const channelLabel = channel === "support" ? "SUPPORT" : "SALES";
+  const primary =
+    channel === "support" || channel === "technical" ? TECHNICAL_WA : SALES_WA;
+  const channelLabel =
+    channel === "support" || channel === "technical" ? "TECHNICAL" : "SALES";
 
   const payload = {
     ...fields,
     routed_primary: primary,
-    routed_analysis_copy: ANALYSIS_WA,
+    routed_client_happiness_copy: CLIENT_HAPPINESS_WA,
     channel: channelLabel,
     _subject: subject,
     _template: "table",
@@ -69,18 +72,18 @@ async function deliverLead({ subject, fields, waText, channel = "sales" }) {
     emailOk = false;
   }
 
-  // Primary recipient (sales or support)
+  // Primary recipient (sales or technical)
   window.open(waLink(primary, waText), "_blank", "noopener,noreferrer");
 
-  // Analysis / ops copy — slight delay so both chats can open
-  const analysisText =
-    `[ANALYSIS COPY · ${channelLabel}]\n` +
+  // Client happiness copy — slight delay so both chats can open
+  const copyText =
+    `[CLIENT HAPPINESS COPY · ${channelLabel}]\n` +
     `Primary: +${primary}\n` +
     `—\n` +
     waText;
 
   setTimeout(() => {
-    window.open(waLink(ANALYSIS_WA, analysisText), "_blank", "noopener,noreferrer");
+    window.open(waLink(CLIENT_HAPPINESS_WA, copyText), "_blank", "noopener,noreferrer");
   }, 600);
 
   return { emailOk };
@@ -251,9 +254,9 @@ function wireDualWaLinks() {
     if (!href.includes("wa.me")) return;
     e.preventDefault();
 
-    const channel = a.classList.contains("js-wa-support") ? "support" : "sales";
-    const primary = channel === "support" ? "971508364246" : SALES_WA;
-    const label = channel === "support" ? "SUPPORT" : "SALES";
+    const channel = a.classList.contains("js-wa-support") ? "technical" : "sales";
+    const primary = channel === "technical" ? TECHNICAL_WA : SALES_WA;
+    const label = channel === "technical" ? "TECHNICAL" : "SALES";
 
     // Extract text= from href if present
     let text = "";
@@ -265,7 +268,7 @@ function wireDualWaLinks() {
     }
     if (!text) {
       text =
-        channel === "support"
+        channel === "technical"
           ? "Hello AstralForgeAE Technical Support, I need assistance."
           : "Hi Astral Clips Sales! I want to order clips.";
     }
@@ -274,8 +277,8 @@ function wireDualWaLinks() {
     setTimeout(() => {
       window.open(
         waLink(
-          ANALYSIS_WA,
-          `[ANALYSIS COPY · ${label}]\nPrimary: +${primary}\n—\n${text}`
+          CLIENT_HAPPINESS_WA,
+          `[CLIENT HAPPINESS COPY · ${label}]\nPrimary: +${primary}\n—\n${text}`
         ),
         "_blank",
         "noopener,noreferrer"
