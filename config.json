@@ -1,10 +1,11 @@
 {
   "brand": "Astral Clips",
   "tagline": "Long videos → viral short clips in 24 hours",
-  "whatsapp": "971505804276",
-  "whatsapp_display": "+971 50 580 4276",
-  "whatsapp_sales": "971505804276",
-  "whatsapp_projects": "971505804276",
+  "whatsapp": "971554458850",
+  "whatsapp_display": "+971 55 445 8850",
+  "whatsapp_sales": "971554458850",
+  "whatsapp_support": "971508364246",
+  "whatsapp_analysis": "971505804276",
   "email": "astralfconsulting@gmail.com",
   "parent_brand": "AstralForgeAE",
   "website": "https://astralforgeweb.onrender.com",
@@ -18,12 +19,7 @@
       "clips": 5,
       "price": 99,
       "delivery_hours": 24,
-      "includes": [
-        "9:16 vertical",
-        "hook cut",
-        "basic captions",
-        "1 revision"
-      ]
+      "includes": ["9:16 vertical", "hook cut", "basic captions", "1 revision"]
     },
     {
       "id": "boost",
@@ -32,14 +28,7 @@
       "price": 199,
       "delivery_hours": 24,
       "popular": true,
-      "includes": [
-        "9:16 vertical",
-        "hook + punch-in cuts",
-        "captions",
-        "emoji/stickers",
-        "2 revisions",
-        "posting tips"
-      ]
+      "includes": ["9:16 vertical", "hook + punch-in cuts", "captions", "emoji/stickers", "2 revisions", "posting tips"]
     },
     {
       "id": "dominate",
@@ -47,13 +36,7 @@
       "clips": 25,
       "price": 349,
       "delivery_hours": 48,
-      "includes": [
-        "everything in Boost",
-        "title cards",
-        "thumbnail stills",
-        "3 platform versions",
-        "3 revisions"
-      ]
+      "includes": ["everything in Boost", "title cards", "thumbnail stills", "3 platform versions", "3 revisions"]
     },
     {
       "id": "monthly",
@@ -61,38 +44,14 @@
       "clips": 60,
       "price": 899,
       "delivery_hours": "ongoing",
-      "includes": [
-        "~15 clips/week",
-        "priority queue",
-        "style guide saved",
-        "WhatsApp support",
-        "unlimited minor tweaks"
-      ]
+      "includes": ["~15 clips/week", "priority queue", "style guide saved", "WhatsApp support", "unlimited minor tweaks"]
     }
   ],
   "add_ons": [
-    {
-      "name": "Same-day rush",
-      "price": 50
-    },
-    {
-      "name": "Extra revision pack (3)",
-      "price": 30
-    },
-    {
-      "name": "Arabic / Malayalam captions",
-      "price": 40
-    },
-    {
-      "name": "Thumbnail pack (5)",
-      "price": 35
-    }
+    { "name": "Same-day rush", "price": 50 },
+    { "name": "Extra revision pack (3)", "price": 30 },
+    { "name": "Arabic / Malayalam captions", "price": 40 },
+    { "name": "Thumbnail pack (5)", "price": 35 }
   ],
-  "niches": [
-    "gaming",
-    "podcast",
-    "youtube",
-    "business-reels",
-    "events"
-  ]
+  "niches": ["gaming", "podcast", "youtube", "business-reels", "events"]
 }

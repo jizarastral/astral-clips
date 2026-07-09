@@ -1,7 +1,11 @@
-/* Astral Clips — landing page logic. Leads → Gmail + Sales WhatsApp. */
+/* Astral Clips — leads route:
+ * Primary Sales WA: +971 55 445 8850
+ * Analysis copy WA: +971 50 580 4276
+ * Email: astralfconsulting@gmail.com
+ */
 
 const FALLBACK = {
-  whatsapp: "971505804276",
+  whatsapp: "971554458850",
   email: "astralfconsulting@gmail.com",
   packages: [
     { id: "spark", name: "Spark", clips: 5, price: 99, delivery_hours: 24, includes: ["9:16 vertical", "hook cut", "basic captions", "1 revision"] },
@@ -12,7 +16,8 @@ const FALLBACK = {
 };
 
 const LEAD_EMAIL = "astralfconsulting@gmail.com";
-const SALES_WA = "971505804276";
+const SALES_WA = "971554458850";
+const ANALYSIS_WA = "971505804276";
 
 async function loadConfig() {
   try {
@@ -29,10 +34,21 @@ function waLink(number, text) {
   return `https://wa.me/${n}?text=${encodeURIComponent(text)}`;
 }
 
-/** Email lead via FormSubmit + open Sales WhatsApp with same details */
-async function deliverLead({ subject, fields, waText }) {
+/**
+ * Route a lead:
+ * 1) Email inbox (FormSubmit)
+ * 2) Primary WhatsApp (sales by default)
+ * 3) Analysis copy WhatsApp (+971 50 580 4276)
+ */
+async function deliverLead({ subject, fields, waText, channel = "sales" }) {
+  const primary = channel === "support" ? "971508364246" : SALES_WA;
+  const channelLabel = channel === "support" ? "SUPPORT" : "SALES";
+
   const payload = {
     ...fields,
+    routed_primary: primary,
+    routed_analysis_copy: ANALYSIS_WA,
+    channel: channelLabel,
     _subject: subject,
     _template: "table",
     _captcha: "false",
@@ -53,8 +69,19 @@ async function deliverLead({ subject, fields, waText }) {
     emailOk = false;
   }
 
-  // Always open WhatsApp so sales gets the lead on phone too
-  window.open(waLink(SALES_WA, waText), "_blank", "noopener,noreferrer");
+  // Primary recipient (sales or support)
+  window.open(waLink(primary, waText), "_blank", "noopener,noreferrer");
+
+  // Analysis / ops copy — slight delay so both chats can open
+  const analysisText =
+    `[ANALYSIS COPY · ${channelLabel}]\n` +
+    `Primary: +${primary}\n` +
+    `—\n` +
+    waText;
+
+  setTimeout(() => {
+    window.open(waLink(ANALYSIS_WA, analysisText), "_blank", "noopener,noreferrer");
+  }, 600);
 
   return { emailOk };
 }
@@ -76,7 +103,7 @@ function renderPricing(cfg) {
       <div class="amount">${p.price} <span>AED</span></div>
       <div class="clips">${p.clips} clips · ${p.delivery_hours === "ongoing" ? "monthly" : p.delivery_hours + "h"}</div>
       <ul>${(p.includes || []).map((i) => `<li>${i}</li>`).join("")}</ul>
-      <a class="btn btn--primary" href="${waLink(wa, defaultMsg(p))}">Order ${p.name}</a>
+      <a class="btn btn--primary js-wa-sales" href="${waLink(wa, defaultMsg(p))}" data-channel="sales">Order ${p.name}</a>
     `;
     root.appendChild(card);
 
@@ -98,6 +125,8 @@ function wireOrderForm(cfg) {
       cfg.whatsapp || SALES_WA,
       "Hi Astral Clips Sales! I want short-form clips from my long video. What's the next step?"
     );
+    hero.classList.add("js-wa-sales");
+    hero.dataset.channel = "sales";
   }
 
   const form = document.getElementById("order-form");
@@ -140,6 +169,7 @@ function wireOrderForm(cfg) {
         source: "astral-clips.onrender.com/order",
       },
       waText,
+      channel: "sales",
     });
 
     if (btn) {
@@ -149,7 +179,7 @@ function wireOrderForm(cfg) {
 
     if (!emailOk) {
       alert(
-        "WhatsApp opened for sales. Email notify may need FormSubmit confirmation once — check Gmail for formsubmit.co."
+        "WhatsApp opened for Sales + analysis copy. Confirm FormSubmit in Gmail once for email alerts."
       );
     }
 
@@ -188,7 +218,7 @@ function wireWaitlistForm() {
       `Source: astral-clips waitlist`,
     ].join("\n");
 
-    const { emailOk } = await deliverLead({
+    await deliverLead({
       subject: `Astral Clips — SaaS waitlist — ${name}`,
       fields: {
         type: "saas_waitlist",
@@ -200,6 +230,7 @@ function wireWaitlistForm() {
         source: "astral-clips.onrender.com/waitlist",
       },
       waText,
+      channel: "sales",
     });
 
     if (btn) {
@@ -207,14 +238,49 @@ function wireWaitlistForm() {
       btn.textContent = prev;
     }
 
-    if (emailOk) {
-      window.location.href = "/thanks.html";
-    } else {
-      alert(
-        "WhatsApp opened with the lead. Confirm FormSubmit email once so future leads hit Gmail automatically."
-      );
-      window.location.href = "/thanks.html";
+    window.location.href = "/thanks.html";
+  });
+}
+
+/** Direct WA links: open primary + analysis copy when marked */
+function wireDualWaLinks() {
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("a.js-wa-sales, a.js-wa-support");
+    if (!a) return;
+    const href = a.getAttribute("href") || "";
+    if (!href.includes("wa.me")) return;
+    e.preventDefault();
+
+    const channel = a.classList.contains("js-wa-support") ? "support" : "sales";
+    const primary = channel === "support" ? "971508364246" : SALES_WA;
+    const label = channel === "support" ? "SUPPORT" : "SALES";
+
+    // Extract text= from href if present
+    let text = "";
+    try {
+      const u = new URL(href);
+      text = u.searchParams.get("text") || "";
+    } catch (_) {
+      text = "";
     }
+    if (!text) {
+      text =
+        channel === "support"
+          ? "Hello AstralForgeAE Technical Support, I need assistance."
+          : "Hi Astral Clips Sales! I want to order clips.";
+    }
+
+    window.open(waLink(primary, text), "_blank", "noopener,noreferrer");
+    setTimeout(() => {
+      window.open(
+        waLink(
+          ANALYSIS_WA,
+          `[ANALYSIS COPY · ${label}]\nPrimary: +${primary}\n—\n${text}`
+        ),
+        "_blank",
+        "noopener,noreferrer"
+      );
+    }, 600);
   });
 }
 
@@ -222,4 +288,5 @@ loadConfig().then((cfg) => {
   renderPricing(cfg);
   wireOrderForm(cfg);
   wireWaitlistForm();
+  wireDualWaLinks();
 });
