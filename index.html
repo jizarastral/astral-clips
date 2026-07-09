@@ -73,21 +73,10 @@
           <h2>Join the self-serve waitlist</h2>
           <p class="section__sub waitlist-sub">
             Monthly plans planned: <strong>99 / 199 / 499 AED</strong> — paste a video, get vertical clips.
-            Submissions go to <strong>astralfconsulting@gmail.com</strong> so you can see every signup.
-            Need clips <strong>today</strong>? Use the WhatsApp order form below.
+            Every lead notifies <strong>Gmail + Sales WhatsApp</strong>.
+            Need clips <strong>today</strong>? Use the order form below.
           </p>
-          <form
-            class="waitlist-form"
-            action="https://formsubmit.co/astralfconsulting@gmail.com"
-            method="POST"
-          >
-            <!-- FormSubmit: first use needs one email confirmation from formsubmit.co -->
-            <input type="hidden" name="_subject" value="Astral Clips — SaaS waitlist signup" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://astral-clips.onrender.com/thanks.html" />
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
+          <form class="waitlist-form" id="waitlist-form" novalidate>
             <div class="waitlist-grid">
               <label>Name
                 <input type="text" name="name" required placeholder="Your name" />
@@ -96,7 +85,7 @@
                 <input type="email" name="email" required placeholder="you@email.com" />
               </label>
               <label>WhatsApp (optional)
-                <input type="tel" name="whatsapp" placeholder="+971 50 …" />
+                <input type="tel" name="whatsapp" placeholder="+971 55 …" />
               </label>
               <label>Plan interest
                 <select name="plan" required>
@@ -110,12 +99,10 @@
             <label class="waitlist-notes">Notes (optional)
               <textarea name="notes" rows="2" placeholder="Creators? Business? How many videos/week?"></textarea>
             </label>
-            <input type="hidden" name="source" value="astral-clips.onrender.com/waitlist" />
             <button type="submit" class="btn btn--primary btn--block">Join waitlist →</button>
           </form>
           <p class="fine" style="margin-top:0.9rem;text-align:center">
-            Free · No spam · You’ll get an email when beta opens.
-            <a href="https://wa.me/971554458850?text=Hi%20Astral%20Clips%20-%20SaaS%20waitlist" target="_blank" rel="noopener">Or WhatsApp sales +971 55 445 8850</a>
+            Free · Each lead goes to <strong>Gmail + Sales WhatsApp (+971 55 445 8850)</strong>.
           </p>
         </div>
       </div>
@@ -182,9 +169,9 @@
           <label>Niche / notes
             <textarea name="notes" rows="3" placeholder="e.g. Valorant highlights, funny moments, English captions"></textarea>
           </label>
-          <button type="submit" class="btn btn--primary btn--block">Open WhatsApp with order →</button>
+          <button type="submit" class="btn btn--primary btn--block">Send order (Email + WhatsApp) →</button>
         </form>
-        <p class="fine">No account needed. Opens WhatsApp with your order pre-filled.</p>
+        <p class="fine">Sends lead to our Gmail and opens Sales WhatsApp (+971 55 445 8850) with your order.</p>
       </div>
     </section>
   </main>
