@@ -1,0 +1,19 @@
+# Astral Clips — Render Static Site
+# Dashboard: New → Blueprint → select this repo
+# Or: New → Static Site → Publish Directory: .
+services:
+  - type: web
+    name: astral-clips
+    runtime: static
+    plan: free
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: DENY
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=300

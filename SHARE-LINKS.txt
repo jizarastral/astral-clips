@@ -1,21 +1,24 @@
-ASTRAL CLIPS — working public links
-===================================
+ASTRAL CLIPS — public links
+===========================
 
-USE THIS WEBSITE (works for everyone):
+PRIMARY (Render):
+https://astral-clips.onrender.com
+
+BACKUP (GitHub Pages):
 https://jizarastral.github.io/astral-clips/
 
 WHATSAPP ORDER:
 https://wa.me/971505804276
 
-DO NOT USE (broken / private):
-- http://127.0.0.1:8765          (only your PC)
-- http://localhost:8765         (only your PC)
-- cdn.jsdelivr.net/...html      (shows code as text, not a webpage)
+EMAIL:
+astralfconsulting@gmail.com
 
+ASTRALFORGE (parent site):
+https://astralforgeweb.onrender.com
 
-Bio / status copy-paste:
-------------------------
-🎬 Astral Clips — long video → TikTok/Reels/Shorts in 24h
+Bio / status:
+------------
+Astral Clips — long video → TikTok/Reels/Shorts in 24h
 From 99 AED · Free sample
-Site: https://jizarastral.github.io/astral-clips/
+Site: https://astral-clips.onrender.com
 Order: https://wa.me/971505804276
