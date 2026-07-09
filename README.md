@@ -10,7 +10,7 @@ Public landing page for the Astral Clips short-form video service (UAE).
 | Waitlist form | https://astral-clips.onrender.com/#waitlist |
 | GitHub Pages (backup) | https://jizarastral.github.io/astral-clips/ |
 
-**WhatsApp:** https://wa.me/971505804276  
+**Sales WhatsApp:** +971 55 445 8850 · https://wa.me/971554458850  
 **Email:** astralfconsulting@gmail.com  
 **Parent brand:** https://astralforgeweb.onrender.com  
 
