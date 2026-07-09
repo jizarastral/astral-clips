@@ -1,7 +1,7 @@
 /* Astral Clips — landing page logic. Leads → Gmail + Sales WhatsApp. */
 
 const FALLBACK = {
-  whatsapp: "971554458850",
+  whatsapp: "971505804276",
   email: "astralfconsulting@gmail.com",
   packages: [
     { id: "spark", name: "Spark", clips: 5, price: 99, delivery_hours: 24, includes: ["9:16 vertical", "hook cut", "basic captions", "1 revision"] },
@@ -12,7 +12,7 @@ const FALLBACK = {
 };
 
 const LEAD_EMAIL = "astralfconsulting@gmail.com";
-const SALES_WA = "971554458850";
+const SALES_WA = "971505804276";
 
 async function loadConfig() {
   try {
