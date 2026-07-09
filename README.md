@@ -7,11 +7,22 @@ Public landing page for the Astral Clips short-form video service (UAE).
 | Host | URL |
 |------|-----|
 | **Render (primary)** | https://astral-clips.onrender.com |
+| Waitlist form | https://astral-clips.onrender.com/#waitlist |
 | GitHub Pages (backup) | https://jizarastral.github.io/astral-clips/ |
 
 **WhatsApp:** https://wa.me/971505804276  
 **Email:** astralfconsulting@gmail.com  
 **Parent brand:** https://astralforgeweb.onrender.com  
+
+### Public waitlist (saves to your Gmail)
+
+The SaaS waitlist form posts to **FormSubmit** → **astralfconsulting@gmail.com**.
+
+1. First signup ever: FormSubmit sends **one confirmation email** — open it and click confirm.  
+2. After that, every waitlist join lands in your Gmail inbox (subject: `Astral Clips — SaaS waitlist signup`).  
+3. Check Gmail / search `Astral Clips — SaaS waitlist`.  
+
+Local `saas/` waitlist on your PC is optional for testing only.
 
 ## Deploy to Render
 

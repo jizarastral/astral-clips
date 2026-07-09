@@ -17,7 +17,7 @@
       <nav class="nav__links">
         <a href="#how">How it works</a>
         <a href="#pricing">Pricing</a>
-        <a href="#saas">SaaS beta</a>
+        <a href="#waitlist">SaaS waitlist</a>
         <a href="#niches">Who it's for</a>
         <a href="#order" class="btn btn--sm">Order now</a>
       </nav>
@@ -66,20 +66,57 @@
       </div>
     </section>
 
-    <section id="saas" class="section" style="padding-top:2rem;">
+    <section id="waitlist" class="section section--alt">
       <div class="container">
-        <div class="hero__card" style="max-width:720px;margin:0 auto;padding:1.5rem 1.75rem;">
-          <p class="badge">New · Self-serve product</p>
-          <h2 style="margin:0.5rem 0 0.75rem;">Astral Clips SaaS (beta waitlist)</h2>
-          <p class="lead" style="margin-bottom:1rem;">
-            Same engine we’re building into a product: paste a video link → get vertical clips → download.
-            Join the waitlist for monthly plans (99 / 199 / 499 AED). Need clips <strong>today</strong>? Use WhatsApp below.
+        <div class="waitlist-box">
+          <p class="badge">Public · SaaS beta</p>
+          <h2>Join the self-serve waitlist</h2>
+          <p class="section__sub waitlist-sub">
+            Monthly plans planned: <strong>99 / 199 / 499 AED</strong> — paste a video, get vertical clips.
+            Submissions go to <strong>astralfconsulting@gmail.com</strong> so you can see every signup.
+            Need clips <strong>today</strong>? Use the WhatsApp order form below.
           </p>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="http://127.0.0.1:8788/" id="saas-local">Open SaaS waitlist (local)</a>
-            <a class="btn btn--ghost" href="https://wa.me/971505804276?text=Hi%20Astral%20Clips%20-%20SaaS%20waitlist%20%2B%20service">WhatsApp interest →</a>
-          </div>
-          <p class="fine" style="margin-top:0.75rem;">Local app: run <code>saas\START-SAAS.bat</code> then open http://127.0.0.1:8788/</p>
+          <form
+            class="waitlist-form"
+            action="https://formsubmit.co/astralfconsulting@gmail.com"
+            method="POST"
+          >
+            <!-- FormSubmit: first use needs one email confirmation from formsubmit.co -->
+            <input type="hidden" name="_subject" value="Astral Clips — SaaS waitlist signup" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://astral-clips.onrender.com/thanks.html" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
+            <div class="waitlist-grid">
+              <label>Name
+                <input type="text" name="name" required placeholder="Your name" />
+              </label>
+              <label>Email
+                <input type="email" name="email" required placeholder="you@email.com" />
+              </label>
+              <label>WhatsApp (optional)
+                <input type="tel" name="whatsapp" placeholder="+971 50 …" />
+              </label>
+              <label>Plan interest
+                <select name="plan" required>
+                  <option value="starter">Starter — 99 AED/mo</option>
+                  <option value="pro" selected>Pro — 199 AED/mo</option>
+                  <option value="business">Business — 499 AED/mo</option>
+                  <option value="not-sure">Not sure yet</option>
+                </select>
+              </label>
+            </div>
+            <label class="waitlist-notes">Notes (optional)
+              <textarea name="notes" rows="2" placeholder="Creators? Business? How many videos/week?"></textarea>
+            </label>
+            <input type="hidden" name="source" value="astral-clips.onrender.com/waitlist" />
+            <button type="submit" class="btn btn--primary btn--block">Join waitlist →</button>
+          </form>
+          <p class="fine" style="margin-top:0.9rem;text-align:center">
+            Free · No spam · You’ll get an email when beta opens.
+            <a href="https://wa.me/971505804276?text=Hi%20Astral%20Clips%20-%20SaaS%20waitlist" target="_blank" rel="noopener">Or WhatsApp us</a>
+          </p>
         </div>
       </div>
     </section>
